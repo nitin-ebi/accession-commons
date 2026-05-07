@@ -18,7 +18,6 @@
 package uk.ac.ebi.ampt2d.commons.accession.persistence.mongodb.repository;
 
 import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -125,7 +124,6 @@ public class AccessionedDocumentRepositoryTest extends MongoTestContainerHelper 
         return new TestInsert(Arrays.asList(documents));
     }
 
-    @Disabled
     @Test
     public void testInsertDuplicatedHashDifferentBatchesBeginning() {
         assertEquals(0, repository.count());
@@ -143,7 +141,6 @@ public class AccessionedDocumentRepositoryTest extends MongoTestContainerHelper 
                 .assertAccessionHasNotBeenSaved("a1");
     }
 
-    @Disabled
     @Test
     public void testInsertDuplicatedHashDifferentBatchesMiddle() {
         assertEquals(0, repository.count());
@@ -161,7 +158,6 @@ public class AccessionedDocumentRepositoryTest extends MongoTestContainerHelper 
                 .assertAccessionHasNotBeenSaved("a1");
     }
 
-    @Disabled
     @Test
     public void testInsertDuplicatedHashDifferentBatchesEnd() {
         assertEquals(0, repository.count());
@@ -179,7 +175,6 @@ public class AccessionedDocumentRepositoryTest extends MongoTestContainerHelper 
                 .assertAccessionHasNotBeenSaved("a0");
     }
 
-    @Disabled
     @Test
     public void testInsertDuplicatedHashDifferentAccession() {
         assertEquals(0, repository.count());
@@ -197,7 +192,6 @@ public class AccessionedDocumentRepositoryTest extends MongoTestContainerHelper 
                 .assertAccessionHasNotBeenSaved("a7");
     }
 
-    @Disabled
     @Test
     public void testInsertMultipleDuplicatedHash() {
         assertEquals(0, repository.count());
