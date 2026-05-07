@@ -17,10 +17,12 @@
  */
 package uk.ac.ebi.ampt2d.commons.accession.persistence.mongodb.service;
 
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 import uk.ac.ebi.ampt2d.commons.accession.core.models.EventType;
 import uk.ac.ebi.ampt2d.commons.accession.core.models.IEvent;
@@ -46,6 +48,14 @@ import static uk.ac.ebi.ampt2d.test.persistence.document.TestDocument.document;
 public class BasicMongoDbInactiveAccessionServiceTest extends MongoTestContainerHelper {
 
     private static final String DEFAULT_REASON = "default-test-reason";
+
+    @Autowired
+    private MongoTemplate mongoTemplate;
+
+    @BeforeEach
+    void cleanDb() {
+        mongoTemplate.getDb().drop();
+    }
 
     @Autowired
     private TestRepository repository;
